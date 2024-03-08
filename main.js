@@ -309,7 +309,7 @@ const generarPDFButtonHandler = () => {
   const x = 0
   const y = 0
   const width = doc.internal.pageSize.width
-  const height = lineHeight * 2
+  const height = lineHeight * 1
   const fillColor = 'c8c8c8'
   doc.setFillColor(fillColor)
   doc.rect(x, y, width, height, "F")
@@ -365,7 +365,7 @@ const stylesPDF = {
     head: [dataNuevaTabla[0]], 
     body: dataNuevaTabla.slice(1), 
     startX: xPos,
-    startY: 60,
+    startY: 50,
     theme: stylesPDF.theme,
     styles: stylesPDF.styles,
     headStyles: stylesPDF.headStyles,
@@ -375,7 +375,7 @@ const stylesPDF = {
   doc.autoTable({
     html: '#resultTable',
     startX: xPos,
-    startY: 170,
+    startY: 160,
     theme: stylesPDF.theme,
     styles: stylesPDF.styles,
     headStyles: stylesPDF.headStyles,
@@ -384,7 +384,7 @@ const stylesPDF = {
 
   Set.fillColor = 'c8c8c8'
   doc.setFillColor(fillColor)
-  const bottomRectHeight = lineHeight * 2
+  const bottomRectHeight = lineHeight * 1
   const bottomRectY = doc.internal.pageSize.height - bottomRectHeight
   doc.rect(x, bottomRectY, width, bottomRectHeight, "F")
 
