@@ -206,9 +206,9 @@ const masQuinientas = (semCot, ed) => {
 //Ubicar en tabulador
 const rangoTabulador = (salProm) => {
   const salDiario = salProm / 30
-  const vecesSalMin = salDiario / salarioMinimoVigente
+  const vecesSalMin = (salDiario / salarioMinimoVigente).toFixed(2)
 
-  const rangoEncontrado = tabulador.find((rango) => vecesSalMin >= rango.min && vecesSalMin <= rango.max)
+  const rangoEncontrado = tabulador.find((rango) => parseFloat(vecesSalMin) >= rango.min && parseFloat(vecesSalMin) <= rango.max)
 
   const cuantia = rangoEncontrado.cuantiaBasica
   const incrementos = rangoEncontrado.incrementoAnual
@@ -321,8 +321,8 @@ const generarPDFButtonHandler = () => {
 
   doc.setFont("helvetica", "normal")
   doc.setFontSize(10)
-  doc.text(`Semanas cotizadas actuales: ${semCotizadas}`, 20, height + 20)
-  doc.text(`Edad: ${edad}`, 20, height + 30)
+  doc.text(`Semanas cotizadas actuales: ${semCotizadas}`, 15, height + 20)
+  doc.text(`Edad: ${edad}`, 15, height + 25)
 
   const dataNuevaTabla = [
     [ { content: 'Salario mínimo vigente:', styles: { fontStyle: 'normal', halign: 'right' }}, { content: '$' + salarioMinimoVigente.toFixed(2), styles: { fontStyle: 'normal' }}, '', 'Cálculo Mensual' ],
@@ -365,7 +365,7 @@ const stylesPDF = {
     head: [dataNuevaTabla[0]], 
     body: dataNuevaTabla.slice(1), 
     startX: xPos,
-    startY: 50,
+    startY: 40,
     theme: stylesPDF.theme,
     styles: stylesPDF.styles,
     headStyles: stylesPDF.headStyles,
@@ -375,17 +375,29 @@ const stylesPDF = {
   doc.autoTable({
     html: '#resultTable',
     startX: xPos,
-    startY: 160,
+    startY: 150,
     theme: stylesPDF.theme,
     styles: stylesPDF.styles,
     headStyles: stylesPDF.headStyles,
     tableWidth: finalTableWidth,
   });
 
-  Set.fillColor = 'c8c8c8'
-  doc.setFillColor(fillColor)
   const bottomRectHeight = lineHeight * 1
   const bottomRectY = doc.internal.pageSize.height - bottomRectHeight
+
+  doc.setFont("helvetica", "bold")
+  doc.setFontSize(10)
+  doc.text('Consideraciones para la proyección', 15, bottomRectY - 32)
+
+  doc.setFont("helvetica", "normal")
+  doc.text('• Asignaciones familiares y ayuda asistencial, Artículo 164 LSS 1973', 15, bottomRectY - 25)
+  doc.text('• Cuantía de las pensiones, Artículo 167 LSS 1973', 15, bottomRectY - 20)
+  doc.text('• Pensión mínima, Artículo 168 LSS 1973', 15, bottomRectY - 15)
+  doc.text('• Tope de pensión es el salario promedio, Artículo 169 LSS 1973', 15, bottomRectY - 10)
+  doc.text('• Tope 25 umas, Transitorio Cuarto inciso II LSS 1973', 15, bottomRectY - 5)
+
+  Set.fillColor = 'c8c8c8'
+  doc.setFillColor(fillColor)
   doc.rect(x, bottomRectY, width, bottomRectHeight, "F")
 
   doc.save('Proyección.pdf')
