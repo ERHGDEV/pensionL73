@@ -16,7 +16,7 @@ Este proyecto es una calculadora de pensión para trabajadores bajo la Ley 73 de
 2. Abre el proyecto en tu editor de código favorito.
 3. Instala las dependencias: `npm install`
 4. Ejecuta el servidor de desarrollo local: `npm run dev`
-5. Abre tu navegador en `http://localhost:3000`.
+5. Abre tu navegador en `http://localhost:___` que se indique. 
 
 ## Configuración
 

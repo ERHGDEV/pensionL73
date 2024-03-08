@@ -80,11 +80,12 @@ const generarPDFButton = document.getElementById('generarPDF')
 const calcularButton = document.getElementById('calc')
 const regresarButton = document.getElementById('regresar')
 
-//Variables de los calculos, para imprimirlos en el pdf
+//Variables para imprimir en el pdf
 let semanasCotizadasTotalesPDF, cuantiaPDF, incrementosPDF, cuantiaMensualPDF, numeroIncrementosPDF, cuantiaIncrementosPDF, sumaCuantiasPDF, asigConyuguePDF, asigHijosPDF, ayudaAsistencialPDF, cuantiaTotalPDF
 
 //Constantes
 const salarioMinimoVigente = 248.93  //es necesario actualizarlo al cambiar año
+const uma = 108.57 //actualizar 1ero de febrero de cada año
 const edadesPorcentajes = [60, 61, 62, 63, 64, '65 o más']
 const porcentajes = [0.75, 0.80, 0.85, 0.90, 0.95, 1.00]
 const tabulador = [
@@ -162,11 +163,14 @@ const validarSalarioMinimo = (salarioPromedio) => {
   if (salarioPromedio / 30 < salarioMinimoVigente) {
     mostrarError('El salario mensual no puede ser menor al salario mínimo')
     return false
+  } else if (salarioPromedio > uma*25*30) {
+    mostrarError('El tope de salario mensual son 25 UMA al mes')
+    return false
   }
   return true
 }
 
-//Validar que las semanas totales cumplan con la ley
+//Validar que las semanas y edad cumplan con la ley
 const masQuinientas = (semCot, ed) => {
   let semanasCotizadasTotales = 0
 
@@ -174,7 +178,6 @@ const masQuinientas = (semCot, ed) => {
     mostrarError('La edad mínima admitida por el sistema son 40 años')
     return false
   } 
-
   if (ed > 100) {
     mostrarError('La edad máxima admitida por el sistema son 100 años')
     return false
@@ -191,7 +194,6 @@ const masQuinientas = (semCot, ed) => {
     mostrarError('Para pensionarte es requisito mínimo 500 semanas cotizadas')
     return false
   } 
-
   if (semanasCotizadasTotales > 2600) {
     mostrarError('El máximo de semanas cotizadas admitidas por el sistema son 2600')
     return false
@@ -200,8 +202,6 @@ const masQuinientas = (semCot, ed) => {
   semanasCotizadasTotalesPDF = semanasCotizadasTotales
   return true
 }
-
-
 
 //Ubicar en tabulador
 const rangoTabulador = (salProm) => {
@@ -217,6 +217,7 @@ const rangoTabulador = (salProm) => {
   return { cuantia, incrementos }
 }
 
+//Lógica del cálculo
 const calcularPension = (salProm, semCotTot, edoCiv, hij, cuant, increm) => {
   limpiarErrores()
   ocultarFormulario()
