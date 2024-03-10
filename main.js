@@ -9,21 +9,22 @@ document.querySelector('#app').innerHTML = `
     
     <h2>Trabajador IMSS ley 73</h2>
     
-    <section id="formulario">
+    <section id="formulario"> 
+      <br>
       <label>Ingresa los siguientes datos:</label><br><br>
       
       <table id="formularioDatos">
         <tr>
           <td>Salario mensual:</td>
-          <td><input type="number" id="salPromedio" placeholder="Promedio últimos 5 años"></td>
+          <td><input type="number" id="salPromedio" placeholder="Promedio últimos 5 años" min="7467.91"></td>
         </tr>
         <tr>
           <td>Semanas cotizadas:</td>
-          <td><input type="number" id="semCotizadas"></td>
+          <td><input type="number" id="semCotizadas" min="0"></td>
         </tr>
         <tr>
           <td>Edad:</td>
-          <td><input type="number" id="edad"></td>
+          <td><input type="number" id="edad" min="40"></td>
         </tr>
         <tr>
           <td>Estado civil:</td>
@@ -125,25 +126,43 @@ const limpiarErrores = () => {
 
 //Visualización
 const ocultarFormulario = () => {
-  document.getElementById('formulario').style.display = 'none'
+  const formulario = document.getElementById('formulario');
+  formulario.style.opacity = '0'
+  setTimeout(() => {
+    formulario.style.display = 'none';
+  }, 0)
 }
 
 const mostrarFormulario = () => {
-  document.getElementById('formulario').style.display = 'block'
+  const formulario = document.getElementById('formulario');
+  formulario.style.display = 'block'
+  setTimeout(() => {
+    formulario.style.opacity = '1';
+  }, 0)
 }
 
 const ocultarResultado = () => {
-  document.getElementById('resultado').style.display = 'none'
+  const resultado = document.getElementById('resultado');
+  resultado.style.opacity = '0'
+  setTimeout(() => {
+    resultado.style.display = 'none';
+  }, 0)
+
   resultTable.style.display = 'none'
   generarPDFButton.style.display = 'none'
   regresarButton.style.display = 'none'
 }
 
 const mostrarResultado = () => {
-  document.getElementById('resultado').style.display = 'block'
-  resultTable.style.display = 'table'
-  generarPDFButton.style.display = 'inline-block'
-  regresarButton.style.display = 'inline-block'
+  const resultado = document.getElementById('resultado');
+  resultado.style.opacity = '0'
+  resultado.style.display = 'block'
+  setTimeout(() => {
+    resultado.style.opacity = '1';
+    resultTable.style.display = 'table'
+    generarPDFButton.style.display = 'inline-block'
+    regresarButton.style.display = 'inline-block'
+  }, 0)
 }
 
 const regresar = () => {
@@ -399,6 +418,9 @@ const stylesPDF = {
   Set.fillColor = 'c8c8c8'
   doc.setFillColor(fillColor)
   doc.rect(x, bottomRectY, width, bottomRectHeight, "F")
+
+  doc.setTextColor(255, 255, 255)
+  doc.text('ERHGDEV 2024©',doc.internal.pageSize.width / 2, doc.internal.pageSize.height - 3, { align: 'center' })
 
   doc.save('Proyección.pdf')
   regresar()

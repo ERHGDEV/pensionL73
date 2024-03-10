@@ -19,6 +19,7 @@
 }
 
 body {
+  background-color: rgb(235, 235, 235);
   margin: 0;
   display: flex;
   place-items: center;
@@ -28,6 +29,14 @@ body {
 
 table {
   margin: 0 auto; 
+}
+
+#formulario {
+  background-color: white;
+  border: 1px solid #ccc; 
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 10px 10px 10px;
 }
 
 #formularioDatos input { 
@@ -46,6 +55,14 @@ table {
 
 select {
   width: 100%;
+}
+
+#resultado { 
+  background-color: white;
+  border: 1px solid #ccc; 
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
 }
 
 #resultTable {
@@ -109,12 +126,22 @@ h4 {
 }
 
 footer {
-  background-color: #333; /* Color de fondo del footer */
-  color: #fff; /* Color del texto del footer */
+  background-color: #333; 
+  color: rgb(255, 255, 255); 
   text-align: center;
   padding: 0;
   position:absolute;
   bottom: 0;
   width: 100%;
   height: 25px;
+}
+
+#formulario,
+#resultado {
+  min-height: 430px;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+#resultado {
+  opacity: 0;
 }
