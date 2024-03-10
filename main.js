@@ -307,6 +307,14 @@ const calcularButtonHandler = () => {
   calcularPension (salarioPromedio, semanasCotizadasTotales, estadoCivil, hijos, cuantia, incrementos)
 }
 
+const getFormattedDate = () => {
+  const today = new Date();
+  const day = today.getDate().toString().padStart(2, '0');
+  const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Los meses comienzan desde 0
+  const year = today.getFullYear().toString().slice(2); // Obtén solo los dos últimos dígitos del año
+  return `${day}/${month}/${year}`;
+};
+
 const generarPDFButtonHandler = () => {
   const salPromedio = parseFloat(salPromedioInput.value)
   const semCotizadas = semCotizadasInput.value
@@ -340,6 +348,8 @@ const generarPDFButtonHandler = () => {
 
   doc.setFont("helvetica", "normal")
   doc.setFontSize(10)
+  const currentDate = getFormattedDate();
+  doc.text(`${currentDate}`, doc.internal.pageSize.width - 17, 15, { align: 'right' });
   doc.text(`Semanas cotizadas actuales: ${semCotizadas}`, 15, height + 20)
   doc.text(`Edad: ${edad}`, 15, height + 25)
 
@@ -406,14 +416,15 @@ const stylesPDF = {
 
   doc.setFont("helvetica", "bold")
   doc.setFontSize(10)
-  doc.text('Consideraciones para la proyección', 15, bottomRectY - 32)
+  doc.text('Consideraciones para la proyección', 15, bottomRectY - 37)
 
   doc.setFont("helvetica", "normal")
-  doc.text('• Asignaciones familiares y ayuda asistencial, Artículo 164 LSS 1973', 15, bottomRectY - 25)
-  doc.text('• Cuantía de las pensiones, Artículo 167 LSS 1973', 15, bottomRectY - 20)
-  doc.text('• Pensión mínima, Artículo 168 LSS 1973', 15, bottomRectY - 15)
-  doc.text('• Tope de pensión es el salario promedio, Artículo 169 LSS 1973', 15, bottomRectY - 10)
-  doc.text('• Tope 25 umas, Transitorio Cuarto inciso II LSS 1973', 15, bottomRectY - 5)
+  doc.text('• Este cálculo únicamente es una proyección, el IMSS realizará el cálculo final al momento del trámite.', 15, bottomRectY - 30)
+  doc.text('• Asignaciones familiares y ayuda asistencial, Artículo 164 LSS 1973.', 15, bottomRectY - 25)
+  doc.text('• Cuantía de las pensiones, Artículo 167 LSS 1973.', 15, bottomRectY - 20)
+  doc.text('• Pensión mínima, Artículo 168 LSS 1973.', 15, bottomRectY - 15)
+  doc.text('• Tope de pensión es el salario promedio, Artículo 169 LSS 1973.', 15, bottomRectY - 10)
+  doc.text('• Tope 25 umas, Transitorio Cuarto inciso II LSS 1973.', 15, bottomRectY - 5)
 
   Set.fillColor = 'c8c8c8'
   doc.setFillColor(fillColor)
