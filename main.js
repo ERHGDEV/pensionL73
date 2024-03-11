@@ -1,6 +1,8 @@
 import jsPDF from "jspdf"
 import 'jspdf-autotable'
 import './style.css'
+import * as Constants from './sources/constants'
+import { validarSalarioMinimo, masQuinientas, rangoTabulador } from './sources/validation'
 
 document.querySelector('#app').innerHTML = `
   <div id="container">
@@ -71,6 +73,7 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
+//DOM
 const salPromedioInput = document.getElementById('salPromedio')
 const semCotizadasInput = document.getElementById('semCotizadas')
 const edadInput = document.getElementById('edad')
@@ -81,41 +84,18 @@ const generarPDFButton = document.getElementById('generarPDF')
 const calcularButton = document.getElementById('calc')
 const regresarButton = document.getElementById('regresar')
 
+//Validar campos llenos
+const actualizarVisibilidadBoton = () => {
+  const inputsValidos = salPromedioInput.value && semCotizadasInput.value && edadInput.value
+  calcularButton.style.display = inputsValidos ? 'inline-block' : 'none'
+  resultTable.style.display = 'none'
+}
+
 //Variables para imprimir en el pdf
 let semanasCotizadasTotalesPDF, cuantiaPDF, incrementosPDF, cuantiaMensualPDF, numeroIncrementosPDF, cuantiaIncrementosPDF, sumaCuantiasPDF, asigConyuguePDF, asigHijosPDF, ayudaAsistencialPDF, cuantiaTotalPDF
 
-//Constantes
-const salarioMinimoVigente = 248.93  //es necesario actualizarlo al cambiar año
-const uma = 108.57 //actualizar 1ero de febrero de cada año
-const edadesPorcentajes = [60, 61, 62, 63, 64, '65 o más']
-const porcentajes = [0.75, 0.80, 0.85, 0.90, 0.95, 1.00]
-const tabulador = [
-  { min: 1.00, max: 1.25, cuantiaBasica: 80.000, incrementoAnual: 0.563 },
-  { min: 1.26, max: 1.5, cuantiaBasica: 77.110, incrementoAnual: 0.814 },
-  { min: 1.51, max: 1.75, cuantiaBasica: 58.180, incrementoAnual: 1.178 },
-  { min: 1.76, max: 2, cuantiaBasica: 49.230, incrementoAnual: 1.430 },
-  { min: 2.01, max: 2.25, cuantiaBasica: 42.670, incrementoAnual: 1.615 },
-  { min: 2.26, max: 2.5, cuantiaBasica: 37.650, incrementoAnual: 1.756 },
-  { min: 2.51, max: 2.75, cuantiaBasica: 33.680, incrementoAnual: 1.868 },
-  { min: 2.76, max: 3, cuantiaBasica: 30.480, incrementoAnual: 1.958 },
-  { min: 3.01, max: 3.25, cuantiaBasica: 27.830, incrementoAnual: 2.033 },
-  { min: 3.26, max: 3.5, cuantiaBasica: 25.600, incrementoAnual: 2.096 },
-  { min: 3.51, max: 3.75, cuantiaBasica: 23.700, incrementoAnual: 2.149 },
-  { min: 3.75, max: 4, cuantiaBasica: 22.070, incrementoAnual: 2.195 },
-  { min: 4.01, max: 4.25, cuantiaBasica: 20.650, incrementoAnual: 2.235 },
-  { min: 4.26, max: 4.5, cuantiaBasica: 19.390, incrementoAnual: 2.271 },
-  { min: 4.51, max: 4.75, cuantiaBasica: 18.290, incrementoAnual: 2.302 },
-  { min: 4.76, max: 5, cuantiaBasica: 17.300, incrementoAnual: 2.330 },
-  { min: 5.01, max: 5.25, cuantiaBasica: 16.410, incrementoAnual: 2.355 },
-  { min: 5.26, max: 5.5, cuantiaBasica: 15.610, incrementoAnual: 2.377 },
-  { min: 5.51, max: 5.75, cuantiaBasica: 14.880, incrementoAnual: 2.398 },
-  { min: 5.76, max: 6, cuantiaBasica: 14.220, incrementoAnual: 2.416 },
-  { min: 6.01, max: 6.01, cuantiaBasica: 13.620, incrementoAnual: 2.433 },
-  { min: 6.02, max: Infinity, cuantiaBasica: 13.000, incrementoAnual: 2.450 }
-]
-
 //Manejo de errores
-const mostrarError = (mensaje) => {
+export const mostrarError = (mensaje) => {
   erroresDiv.innerHTML = `<p>${mensaje}</p>`
   resultTable.style.display = 'none'
 }
@@ -169,72 +149,6 @@ const regresar = () => {
   ocultarResultado()
 }
 
-//Validar campos llenos
-const actualizarVisibilidadBoton = () => {
-  const inputsValidos = salPromedioInput.value && semCotizadasInput.value && edadInput.value
-  calcularButton.style.display = inputsValidos ? 'inline-block' : 'none'
-  resultTable.style.display = 'none'
-}
-
-//Validar salario mínimo
-const validarSalarioMinimo = (salarioPromedio) => {
-  if (salarioPromedio / 30 < salarioMinimoVigente) {
-    mostrarError('El salario mensual no puede ser menor al salario mínimo')
-    return false
-  } else if (salarioPromedio > uma*25*30) {
-    mostrarError('El tope de salario mensual son 25 UMA al mes')
-    return false
-  }
-  return true
-}
-
-//Validar que las semanas y edad cumplan con la ley
-const masQuinientas = (semCot, ed) => {
-  let semanasCotizadasTotales = 0
-
-  if (ed < 40) {
-    mostrarError('La edad mínima admitida por el sistema son 40 años')
-    return false
-  } 
-  if (ed > 100) {
-    mostrarError('La edad máxima admitida por el sistema son 100 años')
-    return false
-  }
-
-  if (ed >= 60) {
-    semanasCotizadasTotales = semCot
-  } else {
-    const yearsTo = parseInt(60 - ed)
-    semanasCotizadasTotales = semCot + (yearsTo * 52)
-  }
-
-  if (semanasCotizadasTotales < 500) {
-    mostrarError('Para pensionarte es requisito mínimo 500 semanas cotizadas')
-    return false
-  } 
-  if (semanasCotizadasTotales > 2600) {
-    mostrarError('El máximo de semanas cotizadas admitidas por el sistema son 2600')
-    return false
-  }
-
-  semanasCotizadasTotalesPDF = semanasCotizadasTotales
-  return true
-}
-
-//Ubicar en tabulador
-const rangoTabulador = (salProm) => {
-  const salDiario = salProm / 30
-  const vecesSalMin = (salDiario / salarioMinimoVigente).toFixed(2)
-
-  const rangoEncontrado = tabulador.find((rango) => parseFloat(vecesSalMin) >= rango.min && parseFloat(vecesSalMin) <= rango.max)
-
-  const cuantia = rangoEncontrado.cuantiaBasica
-  const incrementos = rangoEncontrado.incrementoAnual
-  cuantiaPDF = cuantia
-  incrementosPDF = incrementos
-  return { cuantia, incrementos }
-}
-
 //Lógica del cálculo
 const calcularPension = (salProm, semCotTot, edoCiv, hij, cuant, increm) => {
   limpiarErrores()
@@ -251,22 +165,22 @@ const calcularPension = (salProm, semCotTot, edoCiv, hij, cuant, increm) => {
 
   resultBody.innerHTML = ''
 
-  edadesPorcentajes.forEach((edad, index) => {
-    const pension = cuantiaTotal * porcentajes[index]
+  Constants.edadesPorcentajes.forEach((edad, index) => {
+    const pension = cuantiaTotal * Constants.porcentajes[index]
 
     let pensionToShow
 
     if (pension > salProm) {
       pensionToShow = salProm
-    } else if (pension < salarioMinimoVigente*30) {
-      pensionToShow = salarioMinimoVigente*30
+    } else if (pension < Constants.salarioMinimoVigente*30) {
+      pensionToShow = Constants.salarioMinimoVigente*30
     } else {
       pensionToShow = pension
     }
 
     const fila = `<tr>
       <td>${edad}</td>
-      <td>${(porcentajes[index] * 100) + '%'}</td>
+      <td>${(Constants.porcentajes[index] * 100) + '%'}</td>
       <td>${'$' + pensionToShow.toFixed(2)}</td>
     </tr>`
     resultBody.innerHTML += fila
@@ -287,6 +201,7 @@ const calcularPension = (salProm, semCotTot, edoCiv, hij, cuant, increm) => {
 const calcularButtonHandler = () => {
   limpiarErrores()
 
+  //DOM
   const salarioPromedio = parseFloat(salPromedioInput.value)
   const semanasCotizadas = parseInt(semCotizadasInput.value)
   const edad = parseInt(edadInput.value)
@@ -297,15 +212,23 @@ const calcularButtonHandler = () => {
     return
   }
 
-  if (!masQuinientas(semanasCotizadas, edad)) {
+  const { value: semanasCotizadasTotales, error: errorMessage } = masQuinientas(semanasCotizadas, edad)
+  
+  if (errorMessage) {
+    mostrarError(errorMessage)
     return
   }
 
-  const semanasCotizadasTotales = semanasCotizadasTotalesPDF
   const { cuantia, incrementos } = rangoTabulador(salarioPromedio)
+
+  semanasCotizadasTotalesPDF = semanasCotizadasTotales
+  cuantiaPDF = cuantia
+  incrementosPDF = incrementos
+
   calcularPension (salarioPromedio, semanasCotizadasTotales, estadoCivil, hijos, cuantia, incrementos)
 }
 
+//Fecha para el PDF
 const getFormattedDate = () => {
   const today = new Date()
   const day = today.getDate().toString().padStart(2, '0')
@@ -353,7 +276,7 @@ const generarPDFButtonHandler = () => {
   doc.text(`Edad: ${edad}`, 15, height + 25)
 
   const dataNuevaTabla = [
-    [ { content: 'Salario mínimo vigente:', styles: { fontStyle: 'normal', halign: 'right' }}, { content: '$' + salarioMinimoVigente.toFixed(2), styles: { fontStyle: 'normal' }}, '', 'Cálculo Mensual' ],
+    [ { content: 'Salario mínimo vigente:', styles: { fontStyle: 'normal', halign: 'right' }}, { content: '$' + Constants.salarioMinimoVigente.toFixed(2), styles: { fontStyle: 'normal' }}, '', 'Cálculo Mensual' ],
     [ { content: 'Salario mensual promedio últimos 5 años:                        ', colSpan: 3 }, `${'$' + salPromedio.toFixed(2)}` ],
     [ { content: 'Porcentaje de Cuantía:', colSpan: 2}, `${cuantiaPDF + '%'}`, `${'$' + cuantiaMensualPDF.toFixed(2)}`],
     [ { content: 'Semanas Cotizadas', rowSpan: 3 }, 'Total:', `${semanasCotizadasTotalesPDF}`, { content: '', rowSpan: 4 } ],
