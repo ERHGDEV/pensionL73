@@ -129,7 +129,7 @@ const ocultarFormulario = () => {
   const formulario = document.getElementById('formulario');
   formulario.style.opacity = '0'
   setTimeout(() => {
-    formulario.style.display = 'none';
+    formulario.style.display = 'none'
   }, 0)
 }
 
@@ -137,7 +137,7 @@ const mostrarFormulario = () => {
   const formulario = document.getElementById('formulario');
   formulario.style.display = 'block'
   setTimeout(() => {
-    formulario.style.opacity = '1';
+    formulario.style.opacity = '1'
   }, 0)
 }
 
@@ -145,12 +145,11 @@ const ocultarResultado = () => {
   const resultado = document.getElementById('resultado');
   resultado.style.opacity = '0'
   setTimeout(() => {
-    resultado.style.display = 'none';
+    resultado.style.display = 'none'
+    resultTable.style.display = 'none'
+    generarPDFButton.style.display = 'none'
+    regresarButton.style.display = 'none'
   }, 0)
-
-  resultTable.style.display = 'none'
-  generarPDFButton.style.display = 'none'
-  regresarButton.style.display = 'none'
 }
 
 const mostrarResultado = () => {
@@ -308,12 +307,12 @@ const calcularButtonHandler = () => {
 }
 
 const getFormattedDate = () => {
-  const today = new Date();
-  const day = today.getDate().toString().padStart(2, '0');
-  const month = (today.getMonth() + 1).toString().padStart(2, '0'); // Los meses comienzan desde 0
-  const year = today.getFullYear().toString().slice(2); // Obtén solo los dos últimos dígitos del año
-  return `${day}/${month}/${year}`;
-};
+  const today = new Date()
+  const day = today.getDate().toString().padStart(2, '0')
+  const month = (today.getMonth() + 1).toString().padStart(2, '0')
+  const year = today.getFullYear().toString().slice(2)
+  return `${day}/${month}/${year}`
+}
 
 const generarPDFButtonHandler = () => {
   const salPromedio = parseFloat(salPromedioInput.value)
@@ -348,8 +347,8 @@ const generarPDFButtonHandler = () => {
 
   doc.setFont("helvetica", "normal")
   doc.setFontSize(10)
-  const currentDate = getFormattedDate();
-  doc.text(`${currentDate}`, doc.internal.pageSize.width - 17, 15, { align: 'right' });
+  const currentDate = getFormattedDate()
+  doc.text(`${currentDate}`, doc.internal.pageSize.width - 17, 15, { align: 'right' })
   doc.text(`Semanas cotizadas actuales: ${semCotizadas}`, 15, height + 20)
   doc.text(`Edad: ${edad}`, 15, height + 25)
 
@@ -388,7 +387,7 @@ const stylesPDF = {
     fillColor: [200, 200, 200],
     fontStyle: 'bold',
   },
-};
+}
 
   doc.autoTable({
     head: [dataNuevaTabla[0]], 
@@ -399,7 +398,7 @@ const stylesPDF = {
     styles: stylesPDF.styles,
     headStyles: stylesPDF.headStyles,
     tableWidth: finalTableWidth,
-  });
+  })
 
   doc.autoTable({
     html: '#resultTable',
@@ -409,7 +408,7 @@ const stylesPDF = {
     styles: stylesPDF.styles,
     headStyles: stylesPDF.headStyles,
     tableWidth: finalTableWidth,
-  });
+  })
 
   const bottomRectHeight = lineHeight * 1
   const bottomRectY = doc.internal.pageSize.height - bottomRectHeight
