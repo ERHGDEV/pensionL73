@@ -97,6 +97,7 @@ const calcularPension = (salProm, semCotTot, edoCiv, hij, cuant, increm) => {
   const ayudaAsistencial = sumaCuantias * 0.15
   const cuantiaTotal = sumaCuantias + asigConyugue + asigHijos + ayudaAsistencial
 
+  //esto ya es la generación de la tabla
   resultBody.innerHTML = ''
 
   Constants.edadesPorcentajes.forEach((edad, index) => {
