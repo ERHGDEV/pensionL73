@@ -17,6 +17,7 @@ const resultBody = document.getElementById('resultBody')
 const generarPDFButton = document.getElementById('generarPDF')
 const calcularButton = document.getElementById('calc')
 const regresarButton = document.getElementById('regresar')
+const goToCalc = document.getElementById('goToCalculadora')
 
 //Validar campos llenos
 const actualizarVisibilidadBoton = () => {
@@ -285,7 +286,13 @@ const stylesPDF = {
   regresar()
 };
 
+const irCalculadora = () => {
+  document.querySelector('#app').innerHTML = Templates.formularioTemplate
+}
+
 //Manejadores de eventos
+/* goToCalc.addEventListener('click', irCalculadora)
+ */
 salPromedioInput.addEventListener('input', actualizarVisibilidadBoton)
 semCotizadasInput.addEventListener('input', actualizarVisibilidadBoton)
 edadInput.addEventListener('input', actualizarVisibilidadBoton)

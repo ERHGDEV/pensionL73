@@ -39,7 +39,7 @@ export const formularioTemplate = `
       </tr>
     </table><br>
     
-    <button id="calc" style="display:none;">Calcular</button>
+    <button id="calc";">Calcular</button>
 
     <br>
     <div id="errores"></div>
@@ -64,5 +64,37 @@ export const formularioTemplate = `
     <br>
     <button id="generarPDF" style="display:none;">Generar PDF</button>
   </section>
+</div>
+`
+
+export const landingTemplate = `
+<div id="landingPage">
+<header>
+  <div class="container">
+    <h2>Calculadora de pensión</h2>
+    <h3>Para trabajadores IMSS Ley 73</h3>
+  </div>
+</header>
+
+<section id="landingAction">
+  <h1>Realiza la proyección de tu pensión</h1>
+  <button id="goToCalculadora">Ir a calculadora</button>
+</section>
+
+<section id="landingInfo">
+  <div class="container">
+    <div class="info">
+      <p>Conoce el importe aproximado de tu pensión</p>
+    </div>
+  
+    <div class="info">
+      <p>Identifica cómo incrementar tu pensión</p>
+    </div>
+  
+    <div class="info">
+      <p>Descubre a que edad te beneficia realizar el trámite</p>
+    </div>
+  </div>
+</section>
 </div>
 `
