@@ -39,7 +39,7 @@ export const formularioTemplate = `
       </tr>
     </table><br>
     
-    <button id="calc";">Calcular</button>
+    <button id="calc";" style="display: none;" >Calcular</button>
 
     <br>
     <div id="errores"></div>

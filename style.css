@@ -3,8 +3,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: #14213d;
-  background-color: #ffffff;
+  color: #e5e5e5;
+  background-color: #14213d;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,7 +18,8 @@
 }
 
 body {
-  background-color: #e5e5e5;
+  color: #e5e5e5;
+  background-color: #14213d;
   margin: 0;
   display: flex;
   place-items: center;
@@ -31,8 +32,9 @@ table {
 }
 
 #formulario {
+  color: #14213d;
   min-height: 420.375px;
-  background-color: #ffffff;
+  background-color: #e5e5e5;
   border: 1px solid #fca311; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -63,7 +65,7 @@ select {
 }
 
 #resultado { 
-  background-color: #ffffff;
+  background-color: #e5e5e5;
   border: 1px solid #fca311; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -71,6 +73,8 @@ select {
 }
 
 #resultTable {
+  background-color: #ffffff;
+  color: #14213d;
   border-collapse: collapse; 
   width: 100%; 
 }
@@ -107,12 +111,14 @@ button {
   font-family: inherit;
   background-color: #fca311;
   cursor: pointer;
+  transition: background-color 0.25s;
   transition: border-color 0.25s;
   transition: color 0.25s;
 }
 button:hover {
-  color: #14213d;
-  border-color: #14213d;
+  background-color: #14213d;
+  color: #ffffff;
+  border-color: #fca311;
 }
 button:focus,
 button:focus-visible {
