@@ -1,5 +1,5 @@
 export const template =  `
-    <div>
+    <div id= "aplication">
         <header> 
             <h1>Calculadora de pensión</h1>
             <h2>Trabajador IMSS Ley 97</h2>
@@ -25,20 +25,60 @@ export const template =  `
 
         <section id="sectionFormulario">
             <div class="container">
-                <label>Ingresa los siguientes datos:</label>
+                <p>Ingresa los siguientes datos:</p>
+
+                <div class="box">
+                    <div class="input__wrapper">
+                        <input 
+                            id="password" 
+                            type="number" 
+                            name="password" 
+                            placeholder="Salario promedio" 
+                            title="Minimum 6 characters at least 1 Alphabet and 1 Number" 
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                            required class="input__field"
+                        >
+                        <label for="password" class="input__label">
+                            Salario mensual
+                        </label>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="input__wrapper">
+                        <input 
+                            id="password" 
+                            type="number" 
+                            name="password" 
+                            placeholder="Salario promedio" 
+                            title="Minimum 6 characters at least 1 Alphabet and 1 Number" 
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                            required class="input__field"
+                        >
+                        <label for="password" class="input__label">
+                            Semanas cotizadas
+                        </label>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="input__wrapper">
+                        <input 
+                            id="password" 
+                            type="number" 
+                            name="password" 
+                            placeholder="Salario promedio" 
+                            title="Minimum 6 characters at least 1 Alphabet and 1 Number" 
+                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+                            required class="input__field"
+                        >
+                        <label for="password" class="input__label">
+                            Edad
+                        </label>
+                    </div>
+                </div>
+
                 <table id="formularioDatos">
-                    <tr>
-                        <td>Salario mensual:</td>
-                        <td><input type="number" id="salPromedio" placeholder="Promedio últimos 5 años" min="7467.91"></td>
-                    </tr>
-                    <tr>
-                        <td>Semanas cotizadas:</td>
-                        <td><input type="number" id="semCotizadas" min="0"></td>
-                    </tr>
-                    <tr>
-                        <td>Edad:</td>
-                        <td><input type="number" id="edad" min="40"></td>
-                    </tr>
                     <tr>
                         <td>Estado civil:</td>
                         <td><select name="estadoCivil" id="estadoCivil">
@@ -55,6 +95,7 @@ export const template =  `
                         </select></td>
                     </tr>
                 </table>
+
                 <button id="calc";">Calcular</button>
             </div>
         </section>
@@ -75,6 +116,8 @@ export const template =  `
                 <button id="generarPDF">Generar PDF</button>
             </div>
         </section>
+
+        
 
         <footer>ERHGDEV 2024©</footer>
     </div>
