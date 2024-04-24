@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color: #e5e5e5;
-  background-color: #14213d;
+  background-color: #16161A;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +19,7 @@
 
 body {
   color: #e5e5e5;
-  background-color: #14213d;
+  background-color: #16161A;
   margin: 0;
   display: flex;
   place-items: center;
@@ -32,10 +32,10 @@ table {
 }
 
 #formulario {
-  color: #14213d;
+  color: #16161A;
   min-height: 420.375px;
-  background-color: #e5e5e5;
-  border: 1px solid #fca311; 
+  background-color: #edf1f8;
+  border: 1px solid #2CB67D; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px 10px 10px 10px;
@@ -65,34 +65,38 @@ select {
 }
 
 #resultado { 
-  background-color: #e5e5e5;
-  border: 1px solid #fca311; 
+  background-color: #edf1f8;
+  border: 1px solid #2CB67D; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
 }
 
 #resultTable {
-  background-color: #ffffff;
-  color: #14213d;
+  background-color: #edf1f8;
+  color: #16161A;
   border-collapse: collapse; 
   width: 100%; 
 }
 
 #resultTable th, #resultTable td {
-  border: 1px solid #14213d; 
+  border: 1px solid #16161A; 
   padding: 8px; 
 }
 
 #resultTable th {
   color: #ffffff;
-  background-color: #14213d; 
-  border: #14213d;
+  background-color: #7F5AF0; 
+  border: #16161A;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+}
+
+h2 {
+  color: #94A1B2;
 }
 
 #app {
@@ -109,16 +113,16 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #fca311;
+  background-color: #2CB67D;
   cursor: pointer;
   transition: background-color 0.25s;
   transition: border-color 0.25s;
   transition: color 0.25s;
 }
 button:hover {
-  background-color: #14213d;
+  background-color: #7F5AF0;
   color: #ffffff;
-  border-color: #fca311;
+  border-color: #2CB67D;
 }
 button:focus,
 button:focus-visible {
@@ -128,20 +132,20 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #14213d;
+    color: #16161A;
     background-color: #ffffff;
   }
   
   button {
     color: #ffffff;
-    background-color: #fca311;
+    background-color: #2CB67D;
   }
 }
 
 
 
 footer {
-  background-color: #14213d; 
+  background-color: #16161A; 
   color: #e5e5e5; 
   text-align: center;
   padding: 0;
