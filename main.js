@@ -280,7 +280,7 @@ const stylesPDF = {
   doc.rect(x, bottomRectY, width, bottomRectHeight, "F")
 
   doc.setTextColor(255, 255, 255)
-  doc.text('ERHGDEV 2024©',doc.internal.pageSize.width / 2, doc.internal.pageSize.height - 3, { align: 'center' })
+  doc.text('ERHGDEV',doc.internal.pageSize.width / 2, doc.internal.pageSize.height - 3, { align: 'center' })
 
   doc.save('Proyección.pdf')
   regresar()
