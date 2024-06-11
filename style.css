@@ -1,10 +1,12 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
 
   color: #e5e5e5;
-  background-color: #16161A;
+  
+  background: rgb(0,0,102);
+  background: linear-gradient(333deg, #000066 68%, #00d4ff 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,7 +21,6 @@
 
 body {
   color: #e5e5e5;
-  background-color: #16161A;
   margin: 0;
   display: flex;
   place-items: center;
@@ -34,8 +35,8 @@ table {
 #formulario {
   color: #16161A;
   min-height: 420.375px;
-  background-color: #edf1f8;
-  border: 1px solid #2CB67D; 
+  background-color: #ffffff;
+  border: 1px solid #006b3e; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px 10px 10px 10px;
@@ -46,14 +47,18 @@ table {
   border-radius: 10px;
   border-width: 1px;
   font-size: 1em;
+  font-weight: 500;
   text-align: center;
+  margin-bottom: 8px;
 }
 
 #formularioDatos select { 
   height: 35px;
   border-radius: 10px;
   font-size: 1em;
+  font-weight: 500;
   text-align: center;
+  margin-bottom: 8px;
 }
 
 #formularioDatos td {
@@ -66,7 +71,7 @@ select {
 
 #resultado { 
   background-color: #edf1f8;
-  border: 1px solid #2CB67D; 
+  border: 1px solid #006b3e; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -86,7 +91,7 @@ select {
 
 #resultTable th {
   color: #ffffff;
-  background-color: #7F5AF0; 
+  background-color: #000066; 
   border: #16161A;
 }
 
@@ -114,15 +119,15 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #2CB67D;
+  color: #000000;
   cursor: pointer;
-  transition: background-color 0.25s;
-  transition: border-color 0.25s;
-  transition: color 0.25s;
+  transition: all 0.25s;
+
 }
 button:hover {
-  background-color: #7F5AF0;
-  color: #ffffff;
+  background-color: #000066;
   border-color: #2CB67D;
+  color: #ffffff;
 }
 button:focus,
 button:focus-visible {
@@ -130,7 +135,7 @@ button:focus-visible {
 }
 
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #16161A;
     background-color: #ffffff;
@@ -140,12 +145,12 @@ button:focus-visible {
     color: #ffffff;
     background-color: #2CB67D;
   }
-}
+} */
 
 
 
 footer {
-  background-color: #16161A; 
+  background-color: #000066; 
   color: #e5e5e5; 
   text-align: center;
   padding: 0;
