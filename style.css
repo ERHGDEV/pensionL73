@@ -5,8 +5,8 @@
 
   color: #e5e5e5;
   
-  background: rgb(0,0,102);
-  background: linear-gradient(333deg, #000066 68%, #00d4ff 100%);
+  background: rgb(0,0,0);
+  background: linear-gradient(333deg, #000000 15%, #000258 51%, #000000 97%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -91,7 +91,7 @@ select {
 
 #resultTable th {
   color: #ffffff;
-  background-color: #000066; 
+  background-color: #000258; 
   border: #16161A;
 }
 
@@ -150,7 +150,7 @@ button:focus-visible {
 
 
 footer {
-  background-color: #000066; 
+  background-color: #000000; 
   color: #e5e5e5; 
   text-align: center;
   padding: 0;
