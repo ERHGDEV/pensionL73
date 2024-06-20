@@ -6,7 +6,7 @@
   color: #e5e5e5;
   
   background: rgb(0,0,0);
-  background: linear-gradient(333deg, #000000 15%, #000258 51%, #000000 97%);
+background: linear-gradient(0deg, #000000 30%, #005050 82%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -36,7 +36,7 @@ table {
   color: #16161A;
   min-height: 420.375px;
   background-color: #ffffff;
-  border: 1px solid #006b3e; 
+  border: 1px solid #01adad; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px 10px 10px 10px;
@@ -71,7 +71,7 @@ select {
 
 #resultado { 
   background-color: #edf1f8;
-  border: 1px solid #006b3e; 
+  border: 1px solid #01adad; 
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
@@ -91,7 +91,7 @@ select {
 
 #resultTable th {
   color: #ffffff;
-  background-color: #000258; 
+  background-color: #005050; 
   border: #16161A;
 }
 
@@ -101,7 +101,7 @@ h1 {
 }
 
 h2 {
-  color: #94A1B2;
+  color: #c6ced8;
 }
 
 #app {
@@ -112,21 +112,22 @@ h2 {
 }
 
 button {
+  width: 150px;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #2CB67D;
+  background-color: #01adad;
   color: #000000;
   cursor: pointer;
   transition: all 0.25s;
 
 }
 button:hover {
-  background-color: #000066;
-  border-color: #2CB67D;
+  background-color: #005050;
+  border-color: #01adad;
   color: #ffffff;
 }
 button:focus,
