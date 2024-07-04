@@ -4,8 +4,10 @@
   font-weight: 500;
   color: #e5e5e5;
   
-  background: rgb(0,0,0);
-  background: linear-gradient(0deg, #000000 30%, #005050 82%);
+  background-color: #111927;
+  background-image: 
+      radial-gradient(at 47% 33%, #162a04 0, transparent 59%), 
+      radial-gradient(at 82% 65%, #111927 0, transparent 55%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,19 +33,21 @@ table {
   margin: 0 auto; 
 }
 
+
 #formulario {
   min-height: 420.375px;
   color: #e5e5e5;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 10px;
+  backdrop-filter: blur(25px) saturate(151%);
+  -webkit-backdrop-filter: blur(25px) saturate(151%);
+  background-color: rgba(17, 25, 40, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 10px 10px 10px 10px;
 }
 
 #formularioDatos input { 
-  height: 35px;
+  width: 150px;
+  height: 30px;
   border-radius: 10px;
   border-width: 1px;
   font-size: 1em;
@@ -52,15 +56,16 @@ table {
   margin-bottom: 8px;
 
   color: #e5e5e5;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px) saturate(151%);
+  -webkit-backdrop-filter: blur(25px) saturate(151%);
+  background-color: rgba(17, 25, 40, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
   
 }
 
 #formularioDatos select { 
-  height: 35px;
+  height: 30px;
   border-radius: 10px;
   font-size: 1em;
   font-weight: 500;
@@ -68,14 +73,15 @@ table {
   margin-bottom: 8px;
 
   color: #e5e5e5;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(25px) saturate(151%);
+  -webkit-backdrop-filter: blur(25px) saturate(151%);
+  background-color: rgba(17, 25, 40, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
 }
 
-#formularioDatos td {
-  line-height: 2;
+.text-label {
+  padding-bottom: 11px;
 }
 
 select {
@@ -85,11 +91,11 @@ select {
 #resultado { 
   
   color: #e5e5e5;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(20px);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(25px) saturate(151%);
+  -webkit-backdrop-filter: blur(25px) saturate(151%);
+  background-color: rgba(17, 25, 40, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 10px;
 }
 
@@ -140,7 +146,7 @@ button {
 
 }
 button:hover {
-  background-color: #005050;
+  background-color: #162a04;
   border-color: #01adad;
   color: #ffffff;
 }
@@ -191,6 +197,7 @@ header .container {
 }
 
 ::placeholder {
+  font-size: small;
   color: #e5e5e5;
   opacity: 0.8; /* Firefox */
 }

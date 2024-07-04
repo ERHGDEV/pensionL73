@@ -11,26 +11,26 @@ export const formularioTemplate = `
     
     <table id="formularioDatos">
       <tr>
-        <td>Salario mensual:</td>
-        <td><input type="number" id="salPromedio" placeholder="Promedio últimos 5 años" min="7467.91"></td>
+        <td class="text-label" >Salario mensual:</td>
+        <td><input type="number" id="salPromedio" placeholder="Prom últimos 5 años" min="7467.91"></td>
       </tr>
       <tr>
-        <td>Semanas cotizadas:</td>
+        <td class="text-label" >Semanas cotizadas:</td>
         <td><input type="number" id="semCotizadas" min="0"></td>
       </tr>
       <tr>
-        <td>Edad:</td>
+        <td class="text-label" >Edad:</td>
         <td><input type="number" id="edad" min="40"></td>
       </tr>
       <tr>
-        <td>Estado civil:</td>
+        <td class="text-label" >Estado civil:</td>
         <td> <select name="estadoCivil" id="estadoCivil">
           <option value="0">Solter@</option>
           <option value="1">Casad@</option>
         </select></td>
       </tr>
       <tr>
-        <td>Hijos:</td>
+        <td class="text-label" >Hijos:</td>
         <td> <select name="hijos" id="hijos">
           <option value="0">No</option>
           <option value="1">1</option>
