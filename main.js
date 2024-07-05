@@ -3,6 +3,7 @@ import 'jspdf-autotable'
 import './style.css'
 import * as Constants from './sources/constants'
 import * as Templates from './sources/templates'
+import '@fontsource-variable/onest'
 import { validarSalarioMinimo, masQuinientas, rangoTabulador, getFormattedDate } from './sources/validation'
 
 document.querySelector('#app').innerHTML = Templates.formularioTemplate
@@ -17,7 +18,6 @@ const resultBody = document.getElementById('resultBody')
 const generarPDFButton = document.getElementById('generarPDF')
 const calcularButton = document.getElementById('calc')
 const regresarButton = document.getElementById('regresar')
-const goToCalc = document.getElementById('goToCalculadora')
 
 //Validar campos llenos
 const actualizarVisibilidadBoton = () => {

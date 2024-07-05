@@ -1,13 +1,13 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Onest Variable', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 500;
   color: #e5e5e5;
   
-  background-color: #111927;
+  background-color: #003c61;
   background-image: 
-      radial-gradient(at 47% 33%, #162a04 0, transparent 59%), 
-      radial-gradient(at 82% 65%, #111927 0, transparent 55%);
+      radial-gradient(at 47% 33%, hsl(212.37, 72%, 59%) 0, transparent 59%), 
+      radial-gradient(at 82% 65%, hsl(210.73, 100%, 8%) 0, transparent 55%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -16,8 +16,9 @@
 }
 
 #errores {
-  color: rgb(255, 130, 130);
-  font-weight: bold;
+  color: rgb(222, 255, 130);
+  font-weight: 400;
+  font-size: 0.9rem;
 }
 
 body {
@@ -37,9 +38,9 @@ table {
 #formulario {
   min-height: 420.375px;
   color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(151%);
-  -webkit-backdrop-filter: blur(25px) saturate(151%);
-  background-color: rgba(17, 25, 40, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 10px 10px 10px 10px;
@@ -56,9 +57,9 @@ table {
   margin-bottom: 8px;
 
   color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(151%);
-  -webkit-backdrop-filter: blur(25px) saturate(151%);
-  background-color: rgba(17, 25, 40, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   
@@ -73,9 +74,9 @@ table {
   margin-bottom: 8px;
 
   color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(151%);
-  -webkit-backdrop-filter: blur(25px) saturate(151%);
-  background-color: rgba(17, 25, 40, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
@@ -91,9 +92,9 @@ select {
 #resultado { 
   
   color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(151%);
-  -webkit-backdrop-filter: blur(25px) saturate(151%);
-  background-color: rgba(17, 25, 40, 0.4);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
   padding: 10px;
@@ -116,7 +117,7 @@ select {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 3em;
   line-height: 1.1;
 }
 
