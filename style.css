@@ -4,116 +4,31 @@
   font-weight: 500;
   color: #e5e5e5;
   
-  background-color: #003c61;
+  background-color: #009dff;
+  
   background-image: 
-      radial-gradient(at 47% 33%, hsl(212.37, 72%, 59%) 0, transparent 59%), 
-      radial-gradient(at 82% 65%, hsl(210.73, 100%, 8%) 0, transparent 55%);
+      radial-gradient(at 47% -23%, #014ba0 0, transparent 59%), 
+      radial-gradient(at 82% 65%, #0053ac 0, transparent 55%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
 
-#errores {
-  color: rgb(222, 255, 130);
-  font-weight: 400;
-  font-size: 0.9rem;
+  display: flex;
+  place-items: center;
+  place-content: center;
 }
 
 body {
-  
   margin: 0;
   display: flex;
   place-items: center;
+  place-content: center;
+  align-items: center;
+  max-width: 500px;
   min-width: 320px;
   min-height: 100dvh;
-}
-
-table {
-  margin: 0 auto; 
-}
-
-
-#formulario {
-  min-height: 420.375px;
-  color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.5);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  padding: 10px 10px 10px 10px;
-}
-
-#formularioDatos input { 
-  width: 150px;
-  height: 30px;
-  border-radius: 10px;
-  border-width: 1px;
-  font-size: 1em;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 8px;
-
-  color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.5);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  
-}
-
-#formularioDatos select { 
-  height: 30px;
-  border-radius: 10px;
-  font-size: 1em;
-  font-weight: 500;
-  text-align: center;
-  margin-bottom: 8px;
-
-  color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.5);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-}
-
-.text-label {
-  padding-bottom: 11px;
-}
-
-select {
-  width: 100%;
-}
-
-#resultado { 
-  
-  color: #e5e5e5;
-  backdrop-filter: blur(25px) saturate(180%);
-  -webkit-backdrop-filter: blur(25px) saturate(180%);
-  background-color: rgba(17, 25, 40, 0.5);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-  padding: 10px;
-}
-
-#resultTable {
-  color: #e5e5e5;
-  border-collapse: collapse; 
-  width: 100%; 
-}
-
-#resultTable th, #resultTable td {
-  border: 1px solid rgba(229, 229, 229, 0.2);
-  padding: 8px; 
-}
-
-#resultTable th {
-  color: #e5e5e5;
-  border: 1px solid rgba(229, 229, 229, 0.2);
 }
 
 h1 {
@@ -132,38 +47,85 @@ h2 {
   text-align: center;
 }
 
-button {
-  width: 150px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+#formulario {
+  height: 425px;
+  color: #e5e5e5;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: #11192880;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 10px;
+}
+
+.form-title {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.form-row {
+  padding-top: 28px;
+  display: grid;
+  place-items: center;
+}
+
+.text-label {
+  width: 100%;
+  grid-column: 1/1;
+  text-align: left;
+  font-weight: 400;
+}
+
+#formularioDatos {
+  padding: 10px;
+}
+
+#formularioDatos input { 
+  position: fixed;
+  right: 20px;
+  
+  grid-column: 2;
   font-size: 1em;
   font-weight: 500;
-  font-family: inherit;
-  color: #e5e5e5;
-  color: #000000;
-  cursor: pointer;
-  transition: all 0.25s;
-
-}
-button:hover {
-  background-color: #162a04;
-  border-color: #01adad;
-  color: #ffffff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-footer {
-  color: #e5e5e5; 
   text-align: center;
-  padding: 0;
-  position:fixed;
-  bottom: 0;
-  width: 100%;
-  height: 25px;
+
+  width: 180px;
+  height: 40px;
+
+  color: #e5e5e5;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  
+}
+
+#formularioDatos select { 
+  position: fixed;
+  right: 20px;
+
+  grid-column: 2;
+  font-size: 1em;
+  font-weight: 500;
+  text-align: center;
+
+  width: 185px;
+  height: 44px;
+
+  color: #e5e5e5;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+#errores {
+  color: rgb(222, 255, 130);
+  font-weight: 300;
+  font-size: 0.9rem;
+  margin-top: 20px;
 }
 
 #formulario,
@@ -175,26 +137,34 @@ footer {
   opacity: 0;
 }
 
-header .container {
-  align-items: center;
+#resultado { 
+  color: #e5e5e5;
+  height: 425px;
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.5);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 10px;
 }
 
-@media (min-width: 1000px) {
+#resultTable {
+  margin: 10px;
+  border-collapse: collapse;
+  font-weight: 400;
+}
 
-  header .container {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+#resultTable th, #resultTable td {
+  padding: 8px; 
+}
 
-  #landingInfo {
-    display: flex;
-    justify-content: center;
-  }
+#resultTable th:nth-child(2) {
+  border-right: 1px solid rgba(229, 229, 229, 0.2);
+  border-left: 1px solid rgba(229, 229, 229, 0.2);
+}
 
-  #landingInfo .info {
-    padding: 50px;
-
-  }
+#resultTable td {
+  border-top: 1px solid rgba(229, 229, 229, 0.2);
 }
 
 ::placeholder {
@@ -206,4 +176,60 @@ header .container {
 ::-ms-input-placeholder { /* Edge 12 -18 */
   color: #e5e5e5;
   opacity: 0.8;
+}
+
+button {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: #e5e5e5;
+  color: #000000;
+  cursor: pointer;
+  transition: all 0.25s;
+
+}
+
+button:hover {
+  background-color: #009dff;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+#calc {
+  position: fixed;
+  bottom: 20px;
+  Right: 20px;
+}
+
+#regresar {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+#generarPDF {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+footer {
+  color: #e5e5e5; 
+  text-align: center;
+  padding: 0;
+  position:fixed;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  z-index: -1;
 }

@@ -5,48 +5,53 @@ export const formularioTemplate = `
   
   <h2>Trabajador IMSS ley 73</h2>
   
-  <section id="formulario"> 
-    <br>
-    <label>Ingresa los siguientes datos:</label><br><br>
-    
-    <table id="formularioDatos">
-      <tr>
-        <td class="text-label" >Salario mensual:</td>
-        <td><input type="number" id="salPromedio" placeholder="Prom últimos 5 años" min="7467.91"></td>
-      </tr>
-      <tr>
-        <td class="text-label" >Semanas cotizadas:</td>
-        <td><input type="number" id="semCotizadas" min="0"></td>
-      </tr>
-      <tr>
-        <td class="text-label" >Edad:</td>
-        <td><input type="number" id="edad" min="40"></td>
-      </tr>
-      <tr>
-        <td class="text-label" >Estado civil:</td>
-        <td> <select name="estadoCivil" id="estadoCivil">
-          <option value="0">Solter@</option>
-          <option value="1">Casad@</option>
-        </select></td>
-      </tr>
-      <tr>
-        <td class="text-label" >Hijos:</td>
-        <td> <select name="hijos" id="hijos">
-          <option value="0">No</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select></td>
-      </tr>
-    </table><br>
-    
-    <button id="calc";" style="display: none;" >Calcular</button>
-    <div id="errores"></div>
-  </section>
+    <section id="formulario"> 
+      
+      <header class="form-title">Ingresa los siguientes datos:</header>
+      
+      <section id="formularioDatos">
+        
+        <div class="form-row">
+          <label class="text-label">Salario mensual:</label>
+          <input type="number" id="salPromedio" placeholder="Prom últimos 5 años" min="7467.91" required>
+        </div>
+
+        <div class="form-row">
+          <label class="text-label" >Semanas cotizadas:</label>
+          <input type="number" id="semCotizadas" min="0" required>
+        </div>
+
+        <div class="form-row">
+          <label class="text-label" >Edad:</label>
+          <input type="number" id="edad" min="40" required>
+        </div>
+        
+        <div class="form-row">
+          <label class="text-label" >Estado civil:</label>
+          <select name="estadoCivil" id="estadoCivil">
+            <option value="0">Solter@</option>
+            <option value="1">Casad@</option>
+          </select>
+        </div>
+        
+        <div class="form-row">
+          <label class="text-label" >Hijos:</label>
+          <select name="hijos" id="hijos">
+            <option value="0">No</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select>
+        </div>
+      
+      </section>
+      
+      <div id="errores"></div>
+
+      <button id="calc" style="display: none;" >Calcular</button>
+    </section>
 
   <section id="resultado">
-    <button id="regresar" style="display: none;">Regresar</button>
-    <br>
-    <br>
+    
     <table id="resultTable" style="display:none;">
       <thead>
         <tr>
@@ -57,10 +62,10 @@ export const formularioTemplate = `
       </thead>
       <tbody id="resultBody"></tbody>
     </table>
-
-    <br>
+    <button id="regresar" style="display: none;">Regresar</button>
     <button id="generarPDF" style="display:none;">Generar PDF</button>
   </section>
 </div>
+
 `
 
