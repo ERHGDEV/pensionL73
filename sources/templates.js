@@ -50,7 +50,7 @@ export const formularioTemplate = `
       <button id="calc" style="display: none;" >Calcular</button>
     </section>
 
-  <section id="resultado">
+  <section id="resultado" style="display:none;">
     
     <table id="resultTable" style="display:none;">
       <thead>
