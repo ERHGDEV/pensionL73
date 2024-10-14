@@ -1,5 +1,9 @@
 export const formularioTemplate = `
 <div id="container">
+
+  <div id="warning">
+    <p>Esta aplicación dejará de funcionar <br> a partir del 1 de noviembre del 2024.</p>
+  </div>
   
   <h1>Calculadora de pensión</h1>
   
