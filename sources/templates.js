@@ -3,6 +3,7 @@ export const formularioTemplate = `
 
   <div id="warning">
     <p>Esta aplicación dejará de funcionar <br> a partir del 1 de noviembre del 2024.</p>
+    <p>Utiliza la nueva versión, ingresa a <br> <a class="white-link" href="https://pensiona-t.vercel.app/">https://pensiona-t.vercel.app/</a></p>
   </div>
   
   <h1>Calculadora de pensión</h1>
