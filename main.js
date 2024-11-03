@@ -16,15 +16,15 @@ const erroresDiv = document.getElementById('errores')
 const resultTable = document.getElementById('resultTable')
 const resultBody = document.getElementById('resultBody')
 const generarPDFButton = document.getElementById('generarPDF')
-const calcularButton = document.getElementById('calc')
+/* const calcularButton = document.getElementById('calc') */
 const regresarButton = document.getElementById('regresar')
 
 //Validar campos llenos
-const actualizarVisibilidadBoton = () => {
+/* const actualizarVisibilidadBoton = () => {
   const inputsValidos = salPromedioInput.value && semCotizadasInput.value && edadInput.value
   calcularButton.style.display = inputsValidos ? 'inline-block' : 'none'
   resultTable.style.display = 'none'
-}
+} */
 
 //Variables para imprimir en el pdf
 let semanasCotizadasTotalesPDF, cuantiaPDF, incrementosPDF, cuantiaMensualPDF, numeroIncrementosPDF, cuantiaIncrementosPDF, sumaCuantiasPDF, asigConyuguePDF, asigHijosPDF, ayudaAsistencialPDF, cuantiaTotalPDF
@@ -293,9 +293,9 @@ const irCalculadora = () => {
 //Manejadores de eventos
 /* goToCalc.addEventListener('click', irCalculadora)
  */
-salPromedioInput.addEventListener('input', actualizarVisibilidadBoton)
+/* salPromedioInput.addEventListener('input', actualizarVisibilidadBoton)
 semCotizadasInput.addEventListener('input', actualizarVisibilidadBoton)
-edadInput.addEventListener('input', actualizarVisibilidadBoton)
-calcularButton.addEventListener('click', calcularButtonHandler)
+edadInput.addEventListener('input', actualizarVisibilidadBoton) */
+/* calcularButton.addEventListener('click', calcularButtonHandler) */
 regresarButton.addEventListener('click', regresar)
 generarPDFButton.addEventListener('click', generarPDFButtonHandler)
